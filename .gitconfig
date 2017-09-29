@@ -1,0 +1,12 @@
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	bye = !git pull --rebase && git push
+[user]
+	name = Rodolfo Silva
+	email = contato@rodolfosilva.com
