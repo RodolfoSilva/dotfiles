@@ -92,6 +92,8 @@ alias docker_rm_containers="docker ps -a -q -f status=exited | xargs -L1 docker 
 alias docker_rm_images="docker images -f dangling=true -q | xargs -L1 docker rmi"
 alias docker_rm_volumes="sudo docker images -q | xargs -L1 docker rmi"
 alias docker_cleanup="docker_rm_containers ; docker_rm_images; docker_rm_volumes"
+#alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="tmux -2"
 
 # Android Config
 export ANDROID_HOME="${HOME%%/}/Android"
