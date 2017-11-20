@@ -8,7 +8,7 @@ export ZSH="${HOME%%/}/.oh-my-zsh"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # Lambda (Mod) ZSH Theme: https://github.com/halfo/lambda-mod-zsh-theme
-ZSH_THEME="lambda-mod" 
+ZSH_THEME="lambda-mod"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -117,4 +117,8 @@ function git-pull-all() {
     git checkout $START;
 };
 
+# Tmux autostart
+#if [[ -z "$TMUX" ]]; then
+#    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+#fi
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
