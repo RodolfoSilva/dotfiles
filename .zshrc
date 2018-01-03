@@ -8,7 +8,7 @@ export ZSH="${HOME%%/}/.oh-my-zsh"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # Lambda (Mod) ZSH Theme: https://github.com/halfo/lambda-mod-zsh-theme
-ZSH_THEME="lambda-mod"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias vs="code ."
 alias cl_memory="sudo bash -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
-alias docker_shutdown="sudo docker ps -a -q | xargs -L1 sudo docker stop"
+alias docker_shutdown="docker ps -a -q | xargs -L1 docker stop"
 alias docker_rm_containers="docker ps -a -q -f status=exited | xargs -L1 docker rm -v"
 alias docker_rm_images="docker images -f dangling=true -q | xargs -L1 docker rmi"
 alias docker_rm_volumes="sudo docker images -q | xargs -L1 docker rmi"
@@ -96,17 +96,17 @@ alias docker_cleanup="docker_rm_containers ; docker_rm_images; docker_rm_volumes
 alias tmux="tmux -2"
 
 # Android Config
-export ANDROID_HOME="${HOME%%/}/Android"
-export PATH="${PATH}:${ANDROID_HOME%%/}/tools/:${ANDROID_HOME%%/}/platform-tools/:${ANDROID_HOME%%/}/tools/bin/"
+#export ANDROID_HOME="${HOME%%/}/Android"
+#export PATH="${PATH}:${ANDROID_HOME%%/}/tools/:${ANDROID_HOME%%/}/platform-tools/:${ANDROID_HOME%%/}/tools/bin/"
 
 #export PYTHONHOME=/usr/local/lib/python3.5/
 #export PYTHONPATH=/usr/local/lib/python3.5/
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/usr/local/heroku/bin:$PATH"
 
-eval "$(gulp --completion=zsh)"
-source ~/.git-flow-completion.zsh 
+#eval "$(gulp --completion=zsh)"
+source ~/.git-flow-completion.zsh
 
 function git-pull-all() {
     START=$(git symbolic-ref --short -q HEAD);
@@ -116,7 +116,7 @@ function git-pull-all() {
     done;
     git checkout $START;
 };
-
+export PATH="${PATH}:$(npm config get prefix)/bin:$HOME/.npm-packages/bin"
 # Tmux autostart
 #if [[ -z "$TMUX" ]]; then
 #    tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
